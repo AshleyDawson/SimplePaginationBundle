@@ -9,7 +9,7 @@
     </parameters>
 
     <services>
-        <service id="ashley_dawson_simple_pagination.paginator" class="%ashley_dawson_simple_pagination.paginator.class%" public="false">
+        <service id="ashley_dawson_simple_pagination.paginator" class="%ashley_dawson_simple_pagination.paginator.class%">
             <call method="setItemsPerPage">
                 <argument>%ashley_dawson_simple_pagination.defaults.items_per_page%</argument>
             </call>

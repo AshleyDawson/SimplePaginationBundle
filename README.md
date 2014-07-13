@@ -33,3 +33,72 @@ ashley_dawson_simple_pagination:
 
 Basic Usage
 -----------
+
+The simplest collection we can use the paginator service on is an array. Please see below for an extremely
+simple example of the paginator operating on an array. This shows the service paginating over an array of 
+12 items.
+
+```php
+namespace Acme\DemoBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+class WelcomeController extends Controller
+{
+    public function indexAction()
+    {
+        $paginator = $this->get('ashley_dawson_simple_pagination.paginator');
+
+        $items = array(
+            'Banana',
+            'Apple',
+            'Cherry',
+            'Lemon',
+            'Pear',
+            'Watermelon',
+            'Orange',
+            'Grapefruit',
+            'Blackcurrant',
+            'Dingleberry',
+            'Snosberry',
+            'Tomato',
+        );
+
+        $paginator->setItemTotalCallback(function () use ($items) {
+            return count($items);
+        });
+
+        $paginator->setSliceCallback(function ($offset, $length) use ($items) {
+            return array_slice($items, $offset, $length);
+        });
+
+        $pagination = $paginator->paginate((int)$this->get('request')->query->get('page', 1));
+
+        return $this->render('AcmeDemoBundle:Welcome:index.html.twig', array(
+            'pagination' => $pagination,
+        ));
+    }
+}
+```
+
+And in the twig view, it looks like this:
+
+```twig
+...
+
+<ul>
+    {% for item in pagination.items %}
+        <li>{{ item }}</li>
+    {% endfor %}
+</ul>
+
+<div>
+    {% for page in pagination.pages %}
+        <a href="?page={{ page }}">{{ page }}</a> |
+    {% endfor %}
+</div>
+
+...
+```
+
+Please note that this is **a very simple example**, some more advanced use-cases and interfaces are coming up.
