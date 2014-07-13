@@ -96,9 +96,44 @@ Configuration
 
 You can configure the Simple Pager Bundle from `app/config/config.yml` with the following **optional** parameters:
 
-```yml
+```yaml
 ashley_dawson_simple_pagination:
   defaults:
     items_per_page: 10
     pages_in_range: 5
+```
+
+Custom Service
+--------------
+
+If you'd like to define the paginator as a custom service, please use the following
+service container configuration.
+
+In Yaml:
+
+```yaml
+
+services:
+
+  my_paginator:
+    class: AshleyDawson\SimplePagination\Paginator
+    calls:
+      - setItemsPerPage, [ 10 ]
+      - setPagesInRange, [ 5 ]
+
+```
+
+or in XML:
+
+```xml
+<services>
+    <service id="my_paginator" class="AshleyDawson\SimplePagination\Paginator">
+        <call method="setItemsPerPage">
+            <argument>10</argument>
+        </call>
+        <call method="setPagesInRange">
+            <argument>5</argument>
+        </call>
+    </service>
+</services>
 ```
