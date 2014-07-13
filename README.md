@@ -89,7 +89,7 @@ And in the twig view, it looks like this:
 ...
 ```
 
-Please note that this is **a very simple example**, some more advanced use-cases and interfaces are coming up.
+Please note that this is **a very simple example**, some advanced use-cases and interfaces are coming up (see below).
 
 Configuration
 -------------
