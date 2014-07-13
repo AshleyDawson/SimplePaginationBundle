@@ -137,3 +137,12 @@ or in XML:
     </service>
 </services>
 ```
+
+Then use it in your controllers like this:
+
+```php
+// Get my paginator service from the container
+$paginator = $this->get('my_paginator');
+
+// ...
+```
