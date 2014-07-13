@@ -1,6 +1,8 @@
 Simple Pagination Bundle
 ========================
 
+[![Build Status](https://travis-ci.org/AshleyDawson/SimplePagination.svg?branch=develop)](https://travis-ci.org/AshleyDawson/SimplePagination)
+
 Symfony 2 bundle for the [Simple Pagination](https://github.com/AshleyDawson/SimplePagination) library.
 
 Installation
