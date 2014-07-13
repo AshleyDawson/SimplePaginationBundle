@@ -135,8 +135,8 @@ services:
   my_paginator:
     class: AshleyDawson\SimplePagination\Paginator
     calls:
-      - setItemsPerPage, [ 10 ]
-      - setPagesInRange, [ 5 ]
+      - [ setItemsPerPage, [ 10 ] ]
+      - [ setPagesInRange, [ 5 ] ]
 
 ```
 
