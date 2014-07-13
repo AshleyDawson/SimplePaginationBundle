@@ -22,6 +22,7 @@
     "autoload": {
         "psr-0": { "AshleyDawson\\SimplePaginationBundle": "" }
     },
+    "target-dir": "AshleyDawson/SimplePaginationBundle",
     "config": {
         "bin-dir": "bin"
     }
