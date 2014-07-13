@@ -19,18 +19,6 @@ package in your `composer.json` file like so:
 
 Then run `composer update` to install the package.
 
-Configuration
--------------
-
-You can configure the Simple Pager Bundle from `app/config/config.yml` with the following parameters:
-
-```yml
-ashley_dawson_simple_pagination:
-  defaults:
-    items_per_page: 10
-    pages_in_range: 5
-```
-
 Basic Usage
 -----------
 
@@ -102,3 +90,15 @@ And in the twig view, it looks like this:
 ```
 
 Please note that this is **a very simple example**, some more advanced use-cases and interfaces are coming up.
+
+Configuration
+-------------
+
+You can configure the Simple Pager Bundle from `app/config/config.yml` with the following **optional** parameters:
+
+```yml
+ashley_dawson_simple_pagination:
+  defaults:
+    items_per_page: 10
+    pages_in_range: 5
+```
