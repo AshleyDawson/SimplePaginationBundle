@@ -47,7 +47,7 @@ class WelcomeController extends Controller
         // Get the paginator service from the container
         $paginator = $this->get('ashley_dawson_simple_pagination.paginator');
 
-        // Build mock set of items to paginate over
+        // Build a mock set of items to paginate over
         $items = array(
             'Banana',
             'Apple',
