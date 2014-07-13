@@ -1,0 +1,28 @@
+{
+    "name": "ashleydawson/simple-pagination-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony2 bundle for Simple Pagination, the simple, lightweight and universal paginator that implements pagination on collections of things",
+    "keywords": ["pagination", "paginator", "pager", "simple", "easy", "flexible", "universal", "lite", "lightweight", "symfony2", "bundle"],
+    "authors": [
+        {
+            "name": "Ashley Dawson",
+            "email": "ashley@ashleydawson.co.uk"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/symfony": "~2.3",
+        "ashleydawson/simple-pagination": "1.0.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit-mock-objects": "2.3.*@dev",
+        "phpunit/php-code-coverage": "3.0.*@dev",
+        "phpunit/phpunit": "4.3.*@dev"
+    },
+    "autoload": {
+        "psr-0": { "AshleyDawson\\SimplePaginationBundle": "" }
+    },
+    "config": {
+        "bin-dir": "bin"
+    }
+}
