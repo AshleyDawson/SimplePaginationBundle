@@ -44,8 +44,10 @@ class WelcomeController extends Controller
 {
     public function indexAction()
     {
+        // Get the paginator service from the container
         $paginator = $this->get('ashley_dawson_simple_pagination.paginator');
 
+        // Build mock set of items to paginate over
         $items = array(
             'Banana',
             'Apple',
@@ -61,16 +63,20 @@ class WelcomeController extends Controller
             'Tomato',
         );
 
+        // Set the item total callback, simply returning the total number of items
         $paginator->setItemTotalCallback(function () use ($items) {
             return count($items);
         });
 
+        // Add the slice callback, simply slicing the items array using $offset and $length
         $paginator->setSliceCallback(function ($offset, $length) use ($items) {
             return array_slice($items, $offset, $length);
         });
 
+        // Perform the pagination, passing the current page number from the request
         $pagination = $paginator->paginate((int)$this->get('request')->query->get('page', 1));
 
+        // Pass the pagination object to the view for rendering
         return $this->render('AcmeDemoBundle:Welcome:index.html.twig', array(
             'pagination' => $pagination,
         ));
@@ -83,12 +89,14 @@ And in the twig view, it looks like this:
 ```twig
 ...
 
+{# Iterate over items for the current page, rendering each one #}
 <ul>
     {% for item in pagination.items %}
         <li>{{ item }}</li>
     {% endfor %}
 </ul>
 
+{# Iterate over the page list, rendering the page links #}
 <div>
     {% for page in pagination.pages %}
         <a href="?page={{ page }}">{{ page }}</a> |
