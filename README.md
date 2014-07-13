@@ -128,7 +128,7 @@ service container configuration.
 
 In YAML:
 
-```yaml
+```yml
 
 services:
 
