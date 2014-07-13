@@ -109,7 +109,7 @@ Custom Service
 If you'd like to define the paginator as a custom service, please use the following
 service container configuration.
 
-In Yaml:
+In YAML:
 
 ```yaml
 
