@@ -17,7 +17,18 @@ package in your `composer.json` file like so:
 }
 ```
 
-Then run `composer update` to install the package.
+Run `composer update` to install the package. Then you'll need to register the bundle in your `app/AppKernel.php`:
+
+```php
+// ...
+
+$bundles = array(
+    // ...
+    new AshleyDawson\SimplePaginationBundle\AshleyDawsonSimplePaginationBundle(),
+);
+
+// ...
+```
 
 Basic Usage
 -----------
