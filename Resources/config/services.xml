@@ -6,6 +6,7 @@
 
     <parameters>
         <parameter key="ashley_dawson_simple_pagination.paginator.class">AshleyDawson\SimplePagination\Paginator</parameter>
+        <parameter key="ashley_dawson_simple_pagination.twig_extension.class">AshleyDawson\SimplePagination\Twig\SimplePaginationExtension</parameter>
     </parameters>
 
     <services>
@@ -16,6 +17,10 @@
             <call method="setPagesInRange">
                 <argument>%ashley_dawson_simple_pagination.defaults.pages_in_range%</argument>
             </call>
+        </service>
+        <service id="ashley_dawson_simple_pagination.twig_extension" class="%ashley_dawson_simple_pagination.twig_extension.class%">
+            <argument>%ashley_dawson_simple_pagination.defaults.template%</argument>
+            <tag name="twig.extension" />
         </service>
     </services>
 
