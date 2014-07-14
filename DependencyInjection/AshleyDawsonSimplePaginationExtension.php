@@ -32,6 +32,9 @@ class AshleyDawsonSimplePaginationExtension extends Extension
         $container->setParameter('ashley_dawson_simple_pagination.defaults.pages_in_range',
             $config['defaults']['pages_in_range']);
 
+        $container->setParameter('ashley_dawson_simple_pagination.defaults.template',
+            $config['defaults']['template']);
+
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
     }
