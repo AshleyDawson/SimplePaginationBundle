@@ -6,7 +6,7 @@
 
     <parameters>
         <parameter key="ashley_dawson_simple_pagination.paginator.class">AshleyDawson\SimplePagination\Paginator</parameter>
-        <parameter key="ashley_dawson_simple_pagination.twig_extension.class">AshleyDawson\SimplePagination\Twig\SimplePaginationExtension</parameter>
+        <parameter key="ashley_dawson_simple_pagination.twig_extension.class">AshleyDawson\SimplePaginationBundle\Twig\SimplePaginationExtension</parameter>
     </parameters>
 
     <services>

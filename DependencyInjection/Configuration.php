@@ -28,7 +28,7 @@ class Configuration implements ConfigurationInterface
                 ->children()
                     ->integerNode('items_per_page')->defaultValue(10)->cannotBeEmpty()->end()
                     ->integerNode('pages_in_range')->defaultValue(5)->cannotBeEmpty()->end()
-                    ->scalarNode('template')->defaultValue('AshleyDawsonSimplePaginationBundle:pagination:default.html.twig')->end()
+                    ->scalarNode('template')->defaultValue('AshleyDawsonSimplePaginationBundle:Pagination:default.html.twig')->end()
                 ->end()
             ->end()
         ;

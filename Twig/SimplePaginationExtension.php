@@ -38,7 +38,7 @@ class SimplePaginationExtension extends \Twig_Extension
     public function getFunctions()
     {
         return array(
-            'simple_pagination_render' => new \Twig_SimpleFunction($this, 'render', array('is_safe' => 'html')),
+            new \Twig_SimpleFunction('simple_pagination_render', array($this, 'render'), array('is_safe' => array('html'))),
         );
     }
 
@@ -54,13 +54,24 @@ class SimplePaginationExtension extends \Twig_Extension
      * Render the pagination
      *
      * @param Pagination $pagination
+     * @param string $routeName
+     * @param string $pageParameterName
+     * @param array $queryParameters
      * @param string|null $template If null is passed then the default template is used
      * @return string
      */
-    public function render(Pagination $pagination, $template = null)
+    public function render(
+        Pagination $pagination, $routeName, $pageParameterName, array $queryParameters = array(), $template = null)
     {
+        if (null === $template) {
+            $template = $this->defaultTemplate;
+        }
+
         return $this->twigEnvironment->render($template, array(
             'pagination' => $pagination,
+            'routeName' => $routeName,
+            'pageParameterName' => $pageParameterName,
+            'queryParameters' => $queryParameters,
         ));
     }
 
