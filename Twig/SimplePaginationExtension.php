@@ -61,7 +61,7 @@ class SimplePaginationExtension extends \Twig_Extension
      * @return string
      */
     public function render(
-        Pagination $pagination, $routeName, $pageParameterName, array $queryParameters = array(), $template = null)
+        Pagination $pagination, $routeName, $pageParameterName = 'page', array $queryParameters = array(), $template = null)
     {
         if (null === $template) {
             $template = $this->defaultTemplate;

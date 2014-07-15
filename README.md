@@ -118,6 +118,51 @@ ashley_dawson_simple_pagination:
   defaults:
     items_per_page: 10
     pages_in_range: 5
+  template: AshleyDawsonSimplePaginationBundle:Pagination:default.html.twig
+```
+
+Twig Function
+-------------
+
+I've provided a handy twig function to render the built in pagination template. The default template
+can be configured in your `app/config/config.yml` or simply overridden as an argument in the twig function.
+
+The arguments passed to the twig function are as follows:
+
+```
+simple_pagination_render(pagination : Pagination, routeName : string, [pageParameterName : string = 'page'], [queryParameters : array = array()], [template : string | null = null])
+```
+
+A brief description of each argument is:
+
+* pagination: The `AshleyDawson\SimplePagination\Pagination` object returned by `AshleyDawson\SimplePagination\Paginator::paginate()`
+* routeName: Route name to be passed to the navigation `{{ path() }}` function, defined in your routing config
+* pageParameterName: The name of the page number parameter in your request (optional)
+* queryParameters: The array of query parameters to append to the path (optional)
+* template: The template you'd like to use to override the default (optional)
+
+An exhaustive twig view example is as follows:
+
+```twig
+<div>
+    {{ simple_pagination_render(pagination, '_welcome', 'page', app.request.query.all, 'AcmeBundle:Default:pagination.html.twig') }}
+</div>
+```
+
+A better example, with the accompanying item list:
+
+```twig
+<div>
+    <ul>
+        {% for item in pagination.items %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div>
+    {{ simple_pagination_render(pagination, 'my_route_name', 'page', app.request.query.all) }}
+</div>
 ```
 
 Custom Service
