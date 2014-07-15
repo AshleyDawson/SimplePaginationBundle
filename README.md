@@ -178,14 +178,17 @@ And in the twig view, it looks like this:
 ```twig
 ...
 
-{# Iterate over items for the current page, rendering each one #}
+{# Iterate over films (Doctrine results) for the current page, rendering each one #}
 <ul>
-    {% for item in pagination.items %}
-        <li>{{ item }}</li>
+    {% for film in pagination.items %}
+        <li>
+            <strong>{{ film.title }}</strong>
+            <time>{{ film.releaseAt | date('jS F, Y') }}</time>
+        </li>
     {% endfor %}
 </ul>
 
-{# Iterate over the page list, rendering the page links #}
+{# Use the pagination view helper to render the page navigation #}
 <div>
     {{ simple_pagination_render(
         pagination, 
