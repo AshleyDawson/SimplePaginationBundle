@@ -106,6 +106,21 @@ And in the twig view, it looks like this:
 ...
 ```
 
+You can override the "items per page" and "pages in range" options at runtime by passing values to the paginator like this:
+ 
+```php
+// ...
+
+$paginator
+    ->setItemsPerPage(20)
+    ->setPagesInRange(5)
+;
+
+$pagination = $paginator->paginate((int)$this->get('request')->query->get('page', 1));
+
+// ...
+```
+
 Please note that this is **a very simple example**, some advanced use-cases and interfaces are coming up (see below).
 
 Doctrine Example
