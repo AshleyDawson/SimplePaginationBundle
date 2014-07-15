@@ -115,10 +115,10 @@ You can configure the Simple Pager Bundle from `app/config/config.yml` with the 
 
 ```yaml
 ashley_dawson_simple_pagination:
-  defaults:
-    items_per_page: 10
-    pages_in_range: 5
-  template: AshleyDawsonSimplePaginationBundle:Pagination:default.html.twig
+    defaults:
+        items_per_page: 10
+        pages_in_range: 5
+        template: AshleyDawsonSimplePaginationBundle:Pagination:default.html.twig
 ```
 
 Twig Function
