@@ -108,6 +108,96 @@ And in the twig view, it looks like this:
 
 Please note that this is **a very simple example**, some advanced use-cases and interfaces are coming up (see below).
 
+Doctrine Example
+----------------
+
+I've expanded the example above to use [Doctrine](http://www.doctrine-project.org/) instead of a static array of items:
+
+```php
+namespace Acme\DemoBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+class WelcomeController extends Controller
+{
+    public function indexAction()
+    {
+        // Get the paginator service from the container
+        $paginator = $this->get('ashley_dawson_simple_pagination.paginator');
+
+        // Create a Doctrine query builder
+        $manager = $this->getDoctrine()->getManager();
+        $query = $manager->createQueryBuilder();
+
+        // Build the initial query, including any special filters
+        $query
+            ->from('AcmeDemoBundle:Film', 'f')
+            ->where('f.releaseAt > :threshold')
+            ->setParameter('threshold', new \DateTime('1980-08-16'))
+        ;
+
+        // Pass the item total callback
+        $paginator->setItemTotalCallback(function () use ($query) {
+
+            // Run the count of all records
+            $query
+                ->select('COUNT(f.id)')
+            ;
+
+            // Return the total item count
+            return (int)$query->getQuery()->getSingleScalarResult();
+        });
+
+        // Pass the slice callback
+        $paginator->setSliceCallback(function ($offset, $length) use ($query) {
+
+            // Select and slice the data
+            $query
+                ->select('f')
+                ->setFirstResult($offset)
+                ->setMaxResults($length)
+            ;
+
+            // Return the collection
+            return $query->getQuery()->getResult();
+        });
+
+        // Finally, paginate using the current page number
+        $pagination = $paginator->paginate((int)$this->get('request')->query->get('page', 1));
+
+        // Pass the pagination object to the view
+        return $this->render('AcmeDemoBundle:Welcome:index.html.twig', array(
+            'pagination' => $pagination,
+        ));
+    }
+}
+```
+
+And in the twig view, it looks like this:
+
+```twig
+...
+
+{# Iterate over items for the current page, rendering each one #}
+<ul>
+    {% for item in pagination.items %}
+        <li>{{ item }}</li>
+    {% endfor %}
+</ul>
+
+{# Iterate over the page list, rendering the page links #}
+<div>
+    {{ simple_pagination_render(
+        pagination, 
+        '_welcome', 
+        'page', 
+        app.request.query.all
+    ) }}
+</div>
+
+...
+```
+
 Configuration
 -------------
 
