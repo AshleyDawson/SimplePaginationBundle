@@ -145,7 +145,13 @@ An exhaustive twig view example is as follows:
 
 ```twig
 <div>
-    {{ simple_pagination_render(pagination, '_welcome', 'page', app.request.query.all, 'AcmeBundle:Default:pagination.html.twig') }}
+    {{ simple_pagination_render(
+        pagination, 
+        '_welcome', 
+        'page', 
+        app.request.query.all, 
+        'AcmeBundle:Default:pagination.html.twig'
+    ) }}
 </div>
 ```
 
