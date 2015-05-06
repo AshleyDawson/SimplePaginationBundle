@@ -3,6 +3,7 @@
     "type": "symfony-bundle",
     "description": "Symfony2 bundle for Simple Pagination, the simple, lightweight and universal paginator that implements pagination on collections of things",
     "keywords": ["pagination", "paginator", "pager", "simple", "easy", "flexible", "universal", "lite", "lightweight", "symfony2", "bundle"],
+    "license": "MIT",
     "authors": [
         {
             "name": "Ashley Dawson",
