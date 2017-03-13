@@ -13,12 +13,11 @@
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "~2.3|~3.0",
+        "twig/twig": "~1.23",
         "ashleydawson/simple-pagination": "1.0.*"
     },
     "require-dev": {
-        "phpunit/phpunit-mock-objects": "2.3.*@dev",
-        "phpunit/php-code-coverage": "3.0.*@dev",
-        "phpunit/phpunit": "4.3.*@dev"
+        "symfony/phpunit-bridge": "^3.0"
     },
     "autoload": {
         "psr-0": { "AshleyDawson\\SimplePaginationBundle": "" }
