@@ -1,6 +1,8 @@
 Simple Pagination Bundle
 ========================
 
+[![Build Status](https://travis-ci.org/AshleyDawson/SimplePaginationBundle.svg?branch=master)](https://travis-ci.org/AshleyDawson/SimplePaginationBundle)
+
 [![knpbundles.com](http://knpbundles.com/AshleyDawson/SimplePaginationBundle/badge-short)](http://knpbundles.com/AshleyDawson/SimplePaginationBundle)
 
 Symfony 2 bundle for the [Simple Pagination](https://github.com/AshleyDawson/SimplePagination) library.
