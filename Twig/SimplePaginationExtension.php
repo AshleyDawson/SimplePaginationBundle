@@ -13,11 +13,6 @@ use AshleyDawson\SimplePagination\Pagination;
 class SimplePaginationExtension extends \Twig_Extension
 {
     /**
-     * @var \Twig_Environment
-     */
-    private $twigEnvironment;
-
-    /**
      * @var string
      */
     private $defaultTemplate;
@@ -38,21 +33,21 @@ class SimplePaginationExtension extends \Twig_Extension
     public function getFunctions()
     {
         return array(
-            new \Twig_SimpleFunction('simple_pagination_render', array($this, 'render'), array('is_safe' => array('html'))),
+            new \Twig_SimpleFunction(
+                'simple_pagination_render',
+                array($this, 'render'),
+                array(
+                    'is_safe' => array('html'),
+                    'needs_environment' => true
+                )
+            ),
         );
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function initRuntime(\Twig_Environment $environment)
-    {
-        $this->twigEnvironment = $environment;
     }
 
     /**
      * Render the pagination
      *
+     * @param Twig_Environment $environment Will be automatically injected by Twig
      * @param Pagination $pagination
      * @param string $routeName
      * @param string $pageParameterName
@@ -61,13 +56,13 @@ class SimplePaginationExtension extends \Twig_Extension
      * @return string
      */
     public function render(
-        Pagination $pagination, $routeName, $pageParameterName = 'page', array $queryParameters = array(), $template = null)
+        \Twig_Environment $environment, Pagination $pagination, $routeName, $pageParameterName = 'page', array $queryParameters = array(), $template = null)
     {
         if (null === $template) {
             $template = $this->defaultTemplate;
         }
 
-        return $this->twigEnvironment->render($template, array(
+        return $environment->render($template, array(
             'pagination' => $pagination,
             'routeName' => $routeName,
             'pageParameterName' => $pageParameterName,
