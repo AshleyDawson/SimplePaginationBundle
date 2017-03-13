@@ -1,0 +1,56 @@
+
+<div class="simple-pagination">
+
+    {% if pagination.firstPageNumber and pagination.firstPageNumber != pagination.currentPageNumber %}
+        <span class="page first active">
+            {{- pagination.firstPageNumber -}}
+        </span>
+    {% else %}
+        <span class="page first">
+            &laquo;
+        </span>
+    {% endif %}
+
+    {% if pagination.previousPageNumber %}
+        <span class="page previous active">
+            {{- pagination.previousPageNumber -}}
+        </span>
+    {% else %}
+        <span class="page previous">
+            &lsaquo;
+        </span>
+    {% endif %}
+
+    {% for page in pagination.pages %}
+        {% if page == pagination.currentPageNumber %}
+            <span class="page current">
+                {{- page -}}
+            </span>
+        {% else %}
+            <span class="page">
+                {{- page -}}
+            </span>
+        {% endif %}
+    {% endfor %}
+
+    {% if pagination.nextPageNumber %}
+        <span class="page next active">
+            {{- pagination.nextPageNumber -}}
+        </span>
+    {% else %}
+        <span class="page next">
+            &rsaquo;
+        </span>
+    {% endif %}
+
+    {% if pagination.lastPageNumber and pagination.lastPageNumber != pagination.currentPageNumber %}
+        <span class="page last active">
+            {{- pagination.lastPageNumber -}}
+        </span>
+    {% else %}
+        <span class="page last">
+            &raquo;
+        </span>
+    {% endif %}
+
+</div>
