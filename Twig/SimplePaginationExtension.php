@@ -3,6 +3,9 @@
 namespace AshleyDawson\SimplePaginationBundle\Twig;
 
 use AshleyDawson\SimplePagination\Pagination;
+use Twig\Environment;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
 /**
  * Class SimplePaginationExtension
@@ -10,7 +13,7 @@ use AshleyDawson\SimplePagination\Pagination;
  * @package AshleyDawson\SimplePaginationBundle\Twig
  * @author Ashley Dawson <ashley@ashleydawson.co.uk>
  */
-class SimplePaginationExtension extends \Twig_Extension
+class SimplePaginationExtension extends AbstractExtension
 {
     /**
      * @var string
@@ -33,7 +36,7 @@ class SimplePaginationExtension extends \Twig_Extension
     public function getFunctions()
     {
         return array(
-            new \Twig_SimpleFunction(
+            new TwigFunction(
                 'simple_pagination_render',
                 array($this, 'render'),
                 array(
@@ -47,7 +50,7 @@ class SimplePaginationExtension extends \Twig_Extension
     /**
      * Render the pagination
      *
-     * @param Twig_Environment $environment Will be automatically injected by Twig
+     * @param Environment $environment Will be automatically injected by Twig
      * @param Pagination $pagination
      * @param string $routeName
      * @param string $pageParameterName
@@ -56,7 +59,7 @@ class SimplePaginationExtension extends \Twig_Extension
      * @return string
      */
     public function render(
-        \Twig_Environment $environment, Pagination $pagination, $routeName, $pageParameterName = 'page', array $queryParameters = array(), $template = null)
+        Environment $environment, Pagination $pagination, $routeName, $pageParameterName = 'page', array $queryParameters = array(), $template = null)
     {
         if (null === $template) {
             $template = $this->defaultTemplate;

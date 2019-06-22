@@ -3,14 +3,12 @@ Simple Pagination Bundle
 
 [![Build Status](https://travis-ci.org/AshleyDawson/SimplePaginationBundle.svg?branch=master)](https://travis-ci.org/AshleyDawson/SimplePaginationBundle)
 
-[![knpbundles.com](http://knpbundles.com/AshleyDawson/SimplePaginationBundle/badge-short)](http://knpbundles.com/AshleyDawson/SimplePaginationBundle)
-
 Symfony 2 bundle for the [Simple Pagination](https://github.com/AshleyDawson/SimplePagination) library.
 
 Installation
 ------------
 
-You can install the Simple Pagination Bundle via [Composer](https://getcomposer.org/). To do that, simply `require` the 
+You can install the Simple Pagination Bundle via [Composer](https://getcomposer.org/). To do that, simply `require` the
 package in your `composer.json` file like so:
 
 ```json
@@ -34,7 +32,7 @@ Basic Usage
 -----------
 
 The simplest collection we can use the paginator service on is an array. Please see below for an extremely
-simple example of the paginator operating on an array. This shows the service paginating over an array of 
+simple example of the paginator operating on an array. This shows the service paginating over an array of
 12 items.
 
 ```php
@@ -109,7 +107,7 @@ And in the twig view, it looks like this:
 ```
 
 You can override the "items per page" and "pages in range" options at runtime by passing values to the paginator like this:
- 
+
 ```php
 // ...
 
@@ -208,9 +206,9 @@ And in the twig view, it looks like this:
 {# Use the pagination view helper to render the page navigation #}
 <div>
     {{ simple_pagination_render(
-        pagination, 
-        '_welcome', 
-        'page', 
+        pagination,
+        '_welcome',
+        'page',
         app.request.query.all
     ) }}
 </div>
@@ -256,10 +254,10 @@ An exhaustive twig view example is as follows:
 ```twig
 <div>
     {{ simple_pagination_render(
-        pagination, 
-        '_welcome', 
-        'page', 
-        app.request.query.all, 
+        pagination,
+        '_welcome',
+        'page',
+        app.request.query.all,
         'AcmeBundle:Default:pagination.html.twig'
     ) }}
 </div>
