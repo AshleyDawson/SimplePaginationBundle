@@ -9,14 +9,10 @@ Installation
 ------------
 
 You can install the Simple Pagination Bundle via [Composer](https://getcomposer.org/). To do that, simply `require` the
-package in your `composer.json` file like so:
+package:
 
-```json
-{
-    "require": {
-        "ashleydawson/simple-pagination-bundle": "^1.0"
-    }
-}
+```bash
+$composer req ashleydawson/simple-pagination-bundle
 ```
 
 Run `composer update` to install the package. Then you'll need to register the bundle in your `app/AppKernel.php`:
