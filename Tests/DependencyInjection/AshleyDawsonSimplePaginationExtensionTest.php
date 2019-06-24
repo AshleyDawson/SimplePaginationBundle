@@ -6,7 +6,7 @@ use AshleyDawson\SimplePaginationBundle\DependencyInjection\AshleyDawsonSimplePa
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 
-class AshleyDawsonSimplePaginationExtensionTest extends \PHPUnit_Framework_TestCase
+class AshleyDawsonSimplePaginationExtensionTest extends \PHPUnit\Framework\TestCase
 {
     public function testLoadWithoutConfiguration()
     {

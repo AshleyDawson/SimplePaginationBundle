@@ -4,8 +4,10 @@ namespace AshleyDawson\SimplePaginationBundle\Tests\Twig;
 
 use AshleyDawson\SimplePaginationBundle\Twig\SimplePaginationExtension;
 use AshleyDawson\SimplePagination\Paginator;
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
 
-class SimplePaginationExtensionTest extends \PHPUnit_Framework_TestCase
+class SimplePaginationExtensionTest extends \PHPUnit\Framework\TestCase
 {
     private $pagination;
 
@@ -35,8 +37,8 @@ class SimplePaginationExtensionTest extends \PHPUnit_Framework_TestCase
 
     public function testExtension()
     {
-        $loader = new \Twig_Loader_Filesystem(__DIR__.'/../fixtures/views');
-        $twig = new \Twig_Environment($loader);
+        $loader = new FilesystemLoader(__DIR__.'/../fixtures/views');
+        $twig = new Environment($loader);
 
         $extension = new SimplePaginationExtension('default.html.twig');
         $html = $extension->render(
@@ -52,8 +54,8 @@ class SimplePaginationExtensionTest extends \PHPUnit_Framework_TestCase
 
     public function testExtensionInTemplate()
     {
-        $loader = new \Twig_Loader_Filesystem(__DIR__.'/../fixtures/views');
-        $twig = new \Twig_Environment($loader);
+        $loader = new FilesystemLoader(__DIR__.'/../fixtures/views');
+        $twig = new Environment($loader);
         $twig->addExtension(new SimplePaginationExtension('default.html.twig'));
 
         $html = $twig->loadTemplate('pagination.html.twig')->render([
