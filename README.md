@@ -12,7 +12,7 @@ You can install the Simple Pagination Bundle via [Composer](https://getcomposer.
 package:
 
 ```bash
-$composer req ashleydawson/simple-pagination-bundle
+$ composer req ashleydawson/simple-pagination-bundle
 ```
 
 Run `composer update` to install the package. Then you'll need to register the bundle in your `app/AppKernel.php`:
