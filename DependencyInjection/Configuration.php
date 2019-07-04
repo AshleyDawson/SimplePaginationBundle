@@ -13,13 +13,17 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
  */
 class Configuration implements ConfigurationInterface
 {
+    const ROOT_NODE_NAME = '';
+
     /**
      * {@inheritdoc}
      */
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder('ashley_dawson_simple_pagination');
-        $rootNode = $treeBuilder->getRootNode();
+        $rootNode = \method_exists($treeBuilder, 'getRootNode')
+            ? $treeBuilder->getRootNode()
+            : $treeBuilder->root('ashley_dawson_simple_pagination');
 
         $rootNode
             ->children()
