@@ -13,8 +13,6 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
  */
 class Configuration implements ConfigurationInterface
 {
-    const ROOT_NODE_NAME = '';
-
     /**
      * {@inheritdoc}
      */
