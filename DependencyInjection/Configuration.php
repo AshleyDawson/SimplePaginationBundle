@@ -18,8 +18,10 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('ashley_dawson_simple_pagination');
+        $treeBuilder = new TreeBuilder('ashley_dawson_simple_pagination');
+        $rootNode = \method_exists($treeBuilder, 'getRootNode')
+            ? $treeBuilder->getRootNode()
+            : $treeBuilder->root('ashley_dawson_simple_pagination');
 
         $rootNode
             ->children()
