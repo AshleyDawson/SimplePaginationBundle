@@ -3,6 +3,8 @@ Simple Pagination Bundle
 
 [![Build Status](https://travis-ci.org/AshleyDawson/SimplePaginationBundle.svg?branch=master)](https://travis-ci.org/AshleyDawson/SimplePaginationBundle)
 
+Many thanks to [BrowserStack](https://www.browserstack.com/) for supporting open source projects like this one.
+
 Symfony 2 bundle for the [Simple Pagination](https://github.com/AshleyDawson/SimplePagination) library.
 
 Installation
