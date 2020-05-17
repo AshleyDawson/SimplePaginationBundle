@@ -11,7 +11,7 @@ class SimplePaginationExtensionTest extends \PHPUnit\Framework\TestCase
 {
     private $pagination;
 
-    public function setUp()
+    public function setUp(): void
     {
         $items = array(
             'Banana',
@@ -47,9 +47,9 @@ class SimplePaginationExtensionTest extends \PHPUnit\Framework\TestCase
             ''
         );
 
-        $this->assertContains('<span class="page current">1</span>', $html);
-        $this->assertContains('<span class="page next active">2</span>', $html);
-        $this->assertContains('<span class="page last active">3</span>', $html);
+        $this->assertStringContainsString('<span class="page current">1</span>', $html);
+        $this->assertStringContainsString('<span class="page next active">2</span>', $html);
+        $this->assertStringContainsString('<span class="page last active">3</span>', $html);
     }
 
     public function testExtensionInTemplate()
@@ -58,13 +58,13 @@ class SimplePaginationExtensionTest extends \PHPUnit\Framework\TestCase
         $twig = new Environment($loader);
         $twig->addExtension(new SimplePaginationExtension('default.html.twig'));
 
-        $html = $twig->loadTemplate('pagination.html.twig')->render([
+        $html = $twig->load('pagination.html.twig')->render([
             'app' => ['request' => ['query' => ['all' => []]]],
             'pagination' => $this->pagination,
         ]);
 
-        $this->assertContains('<span class="page current">1</span>', $html);
-        $this->assertContains('<span class="page next active">2</span>', $html);
-        $this->assertContains('<span class="page last active">3</span>', $html);
+        $this->assertStringContainsString('<span class="page current">1</span>', $html);
+        $this->assertStringContainsString('<span class="page next active">2</span>', $html);
+        $this->assertStringContainsString('<span class="page last active">3</span>', $html);
     }
 }

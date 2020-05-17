@@ -5,7 +5,7 @@ Simple Pagination Bundle
 
 Many thanks to [BrowserStack](https://www.browserstack.com/) for supporting open source projects like this one.
 
-Symfony 2 bundle for the [Simple Pagination](https://github.com/AshleyDawson/SimplePagination) library.
+Symfony bundle for the [Simple Pagination](https://github.com/AshleyDawson/SimplePagination) library.
 
 Installation
 ------------

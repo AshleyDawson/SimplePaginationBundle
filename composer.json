@@ -1,8 +1,8 @@
 {
     "name": "ashleydawson/simple-pagination-bundle",
     "type": "symfony-bundle",
-    "description": "Symfony2 bundle for Simple Pagination, the simple, lightweight and universal paginator that implements pagination on collections of things",
-    "keywords": ["pagination", "paginator", "pager", "simple", "easy", "flexible", "universal", "lite", "lightweight", "symfony2", "bundle"],
+    "description": "Symfony bundle for Simple Pagination, the simple, lightweight and universal paginator that implements pagination on collections of things",
+    "keywords": ["pagination", "paginator", "pager", "simple", "easy", "flexible", "universal", "lite", "lightweight", "symfony", "bundle"],
     "license": "MIT",
     "authors": [
         {
@@ -11,19 +11,23 @@
         }
     ],
     "require": {
-        "php": ">=5.3.3",
-        "symfony/symfony": "^3.0|^4.0",
-        "twig/twig": "~1.23|^2.7",
+        "php": "^7.2.5",
+        "symfony/config": "^3.4|^4.2|^5.0",
+        "symfony/dependency-injection": "^3.4|^4.2|^5.0",
+        "symfony/http-kernel": "^3.4|^4.2|^5.0",
+        "symfony/yaml": "^3.4|^4.2|^5.0",
+        "twig/twig": "^2.7|^3.0",
         "ashleydawson/simple-pagination": "1.0.*"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "^4.0"
+        "symfony/phpunit-bridge": "^5.0"
     },
     "autoload": {
-        "psr-0": { "AshleyDawson\\SimplePaginationBundle": "" }
-    },
-    "target-dir": "AshleyDawson/SimplePaginationBundle",
-    "config": {
-        "bin-dir": "bin"
+        "psr-4": {
+            "AshleyDawson\\SimplePaginationBundle\\": ""
+        },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
     }
 }
